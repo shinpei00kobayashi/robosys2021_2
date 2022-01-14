@@ -20,10 +20,10 @@ GPIO.libのインストールはページの下部のサイトを参照してく
 
 # 実行方法
 ①プログラムインストール
-'''bash
+```bash
 cd ~/catkin_ws/src
 git clone https://github.com/shinpei00kobayashi/robosys2021_2.git
-'''
+```
 
 ②パッケージをビルド
 

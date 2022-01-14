@@ -75,3 +75,9 @@ $rosrun testn led.py
 4
 ```
 
+# DEMO動画
+https://youtu.be/YZaq_t9PQT4
+
+# 参照サイト
+WiringPI_install
+https://qiita.com/nanbuwks/items/f70005772133bf54f4d3

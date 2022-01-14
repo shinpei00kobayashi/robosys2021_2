@@ -14,6 +14,10 @@ ROSを用いてGPIOへの出力と、簡易電卓を実装しました。
 
 GPIO.libのインストールはページの下部のサイトを参照してください
 
+配線は以下のように行ってください
+![E6323D9E-2F5E-4D66-8113-4261162DED92](https://user-images.githubusercontent.com/97512094/149515616-0d6f4653-724b-43b4-bb3c-723ca176098e.jpg)
+![9D923F95-16BB-44C8-B31A-161B656EA777](https://user-images.githubusercontent.com/97512094/149515678-32fe5f85-daa0-4583-80c8-ed46632985e6.jpg)
+
 # 実行方法
 ①プログラムインストール
 '''bash

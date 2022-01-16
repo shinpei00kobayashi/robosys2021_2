@@ -6,9 +6,6 @@ import time
 
 def cb(message):
   rospy.loginfo(message.data)
-  #if message == x:
-   #print('OK') 
-
 
 
 rospy.init_node('answer_dis')

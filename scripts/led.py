@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 
 import rospy
+from decimal import Decimal
+from std_msgs.msg import Float32
 import RPi.GPIO as GPIO
 import time
 
 
+
+rospy.init_node('answer')
+pub = rospy.Publisher('answer_up',Float32,queue_size=1)
+rate=rospy.Rate(10)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(24,GPIO.OUT)
@@ -26,6 +32,8 @@ if which == 1:
 
    if x % 3 == 0 and x != 0:
     print(x,"!!!!!")
+    pub.publish(x)
+
     i = 25
     for n in range(4):
      i -= 1
@@ -36,6 +44,7 @@ if which == 1:
    
    else:
     print(x)
+    pub.publish(x)
     GPIO.output(24,0)
     GPIO.output(23,0)
     GPIO.output(22,0)
@@ -47,8 +56,9 @@ if which == 2:
   h = 0
   n = 0
   v = 0
-  num1 = int(input('最初の数字を入力してください:'))
-  num2 = int(input('次の数字を入力:')) 
+  a = 0
+  num1 = Decimal(input('最初の数字を入力してください:'))
+  num2 = Decimal(input('次の数字を入力:')) 
 
   o = str(input('いずれかのkeyを入力してください\n+...加算\n-...引算\n*...掛算\n/...割算\n '))
 
@@ -76,7 +86,9 @@ if which == 2:
     GPIO.output(21,0)
     time.sleep(0.2)
    print(num1 + num2)
-
+   a = (num1 + num2)
+   pub.publish(a)
+   rate.sleep()
 
 
   elif o =='-':
@@ -101,7 +113,9 @@ if which == 2:
     GPIO.output(21,0)
     time.sleep(0.2)
    print(num1 - num2)
-
+   a = num1 - num2
+   pub.publish(a)
+   rate.sleep()
 
 
 
@@ -128,7 +142,9 @@ if which == 2:
     GPIO.output(21,0)
     time.sleep(0.2)
    print(num1 * num2)
-
+   a = num1 * num2
+   pub.publish(a)
+   rate.sleep()
 
 
 
@@ -154,7 +170,9 @@ if which == 2:
     GPIO.output(21,0)
     time.sleep(0.2)
    print(num1 / num2)
-
+   a = num1 / num2
+   pub.publish(a)
+   rate.sleep()
 
 
   else:
